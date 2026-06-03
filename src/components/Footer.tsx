@@ -1,5 +1,4 @@
-import { NAV, PRACTICE } from "../content";
-import { Heart } from "../icons";
+import { NAV, PRACTICE, IMAGES } from "../content";
 
 export default function Footer() {
   return (
@@ -7,12 +6,13 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="brand">
-              <Heart className="brand-mark" />
-              <span>
-                <b>GC</b> Heart<span style={{ color: "var(--aqua-soft)" }}>Care</span>
-              </span>
-            </span>
+            <img
+              className="brand-logo on-dark"
+              src={IMAGES.logo}
+              alt={PRACTICE.name}
+              width={780}
+              height={164}
+            />
             <p>
               Private specialist cardiology on the Gold Coast since 1994 —
               {" "}{PRACTICE.tagline.toLowerCase()}.

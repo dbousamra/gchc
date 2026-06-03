@@ -1,4 +1,4 @@
-import { BRING_LIST, PRACTICE } from "../content";
+import { BRING_LIST, PRACTICE, IMAGES } from "../content";
 import { Check, Download, ArrowRight } from "../icons";
 import { useReveal } from "../hooks";
 
@@ -43,7 +43,11 @@ export default function Info() {
           </article>
 
           {/* Referrers */}
-          <article className="info-card dark reveal" id="referrers">
+          <article
+            className="info-card dark has-photo reveal"
+            id="referrers"
+            style={{ backgroundImage: `url(${IMAGES.clinic})` }}
+          >
             <span className="eyebrow on-dark">For referrers</span>
             <h3>Referring a patient</h3>
             <p>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { PRACTICE } from "../content";
+import { PRACTICE, MAP_EMBED } from "../content";
 import { Phone, Mail, Pin, Clock, ArrowRight } from "../icons";
 import { useReveal } from "../hooks";
 
@@ -131,6 +131,21 @@ export default function Contact() {
               call? {PRACTICE.phone}
             </p>
           </form>
+        </div>
+
+        <div className="map-wrap reveal">
+          <iframe
+            title={`Map to ${PRACTICE.name}`}
+            src={MAP_EMBED}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <div className="map-badge">
+            <div className="label">Find us</div>
+            <div className="name">{PRACTICE.address.line1}</div>
+            <div className="addr">{PRACTICE.address.line2}</div>
+          </div>
         </div>
       </div>
     </section>

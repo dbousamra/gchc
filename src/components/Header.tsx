@@ -1,18 +1,7 @@
 import { useState } from "react";
-import { NAV, PRACTICE } from "../content";
-import { Heart, Phone, Menu, Close } from "../icons";
+import { NAV, PRACTICE, IMAGES } from "../content";
+import { Phone, Menu, Close } from "../icons";
 import { useScrolled } from "../hooks";
-
-function BrandMark() {
-  return (
-    <span className="brand">
-      <Heart className="brand-mark" />
-      <span>
-        <b>GC</b> Heart<span>Care</span>
-      </span>
-    </span>
-  );
-}
 
 export default function Header() {
   const scrolled = useScrolled();
@@ -23,7 +12,7 @@ export default function Header() {
       <header className={`site-header${scrolled ? " scrolled" : ""}`}>
         <div className="wrap header-inner">
           <a href="#top" aria-label={`${PRACTICE.name} home`}>
-            <BrandMark />
+            <img className="brand-logo" src={IMAGES.logo} alt={PRACTICE.name} width={780} height={164} />
           </a>
 
           <nav className="nav" aria-label="Primary">

@@ -1,4 +1,4 @@
-import { PRACTICE, SERVICES, STATS } from "../content";
+import { PRACTICE, SERVICES, STATS, IMAGES } from "../content";
 import { ArrowRight, Clock } from "../icons";
 import { useReveal } from "../hooks";
 
@@ -54,7 +54,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <aside className="hero-card reveal" aria-label="Practice snapshot">
+        <aside
+          className="hero-card has-photo reveal"
+          aria-label="Practice snapshot"
+          style={{ backgroundImage: `url(${IMAGES.cardiologist})` }}
+        >
           <div className="card-kicker">{PRACTICE.tagline}</div>
           <h3>A steady hand for every heartbeat.</h3>
           <p>

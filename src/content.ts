@@ -1,6 +1,20 @@
 // Site content for GC HeartCare.
 // Single source of truth for copy used across sections.
 
+/** Resolve a path in /public against the Vite base (works for any `base`). */
+export const asset = (p: string) => `${import.meta.env.BASE_URL}${p}`;
+
+export const IMAGES = {
+  logo: asset("logo.png"),
+  cardiologist: asset("img-cardiologist.jpg"),
+  heart: asset("img-heart.jpg"),
+  clinic: asset("img-clinic.jpg"),
+};
+
+// Google Maps embed (keyless `output=embed` form) for the practice address.
+export const MAP_EMBED =
+  "https://www.google.com/maps?q=Gold+Coast+Private+Hospital,+14+Hill+Street,+Southport+QLD+4215&output=embed";
+
 export const PRACTICE = {
   name: "GC HeartCare",
   tagline: "Care when you need it most",
