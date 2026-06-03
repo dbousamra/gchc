@@ -14,6 +14,7 @@
   --ink-soft: #3b2a57;
   --ink-70: rgba(39, 26, 56, 0.7);
   --ink-50: rgba(39, 26, 56, 0.5);
+  --ink-label: rgba(39, 26, 56, 0.66); /* low-emphasis text that still clears AA (≥4.5:1) */
   --ink-15: rgba(39, 26, 56, 0.15);
   --ink-08: rgba(39, 26, 56, 0.08);
 
@@ -488,7 +489,7 @@ section {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-50);
+  color: var(--ink-label);
   margin-bottom: 0.35rem;
 }
 .hero-meta .value {
@@ -692,26 +693,11 @@ section {
   position: relative;
   overflow: hidden;
 }
-.svc-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--coral);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
 .svc-card:hover {
   transform: translateY(-5px);
   background: var(--paper);
-  border-color: var(--ink-15);
+  border-color: var(--coral);
   box-shadow: var(--shadow-lg);
-}
-.svc-card:hover::before {
-  transform: scaleY(1);
 }
 .svc-icon {
   width: 46px;
@@ -1021,7 +1007,7 @@ section {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-50);
+  color: var(--ink-label);
   margin-bottom: 0.25rem;
 }
 .cd-row .val {
@@ -1113,7 +1099,7 @@ section {
 .form-hint {
   margin-top: 0.9rem;
   font-size: 0.82rem;
-  color: var(--ink-50);
+  color: var(--ink-label);
   text-align: center;
 }
 
