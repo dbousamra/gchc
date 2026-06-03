@@ -625,49 +625,64 @@ section {
   }
 }
 
-/* marquee strip of services */
-.strip {
-  border-top: 1px solid var(--ink-15);
-  border-bottom: 1px solid var(--ink-15);
+/* =====================================================================
+   LOCATION band — address + subtle map, directly under the hero
+   ===================================================================== */
+.location {
   background: var(--paper-2);
-  overflow: hidden;
-  padding-block: 1.1rem;
-  position: relative;
-  z-index: 2;
+  border-bottom: 1px solid var(--ink-08);
 }
-.strip-track {
-  display: flex;
-  gap: 3rem;
-  width: max-content;
-  animation: marquee 38s linear infinite;
-}
-.strip:hover .strip-track {
-  animation-play-state: paused;
-}
-.strip-item {
-  display: inline-flex;
+.location .wrap {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
-  gap: 3rem;
+  padding-block: clamp(2.8rem, 5vw, 4.5rem);
+}
+.location-info h2 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  max-width: 17ch;
+}
+.location-rows {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 1.1rem;
+}
+.loc-row {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+.loc-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  color: var(--coral-deep);
+  border: 1px solid var(--ink-08);
+}
+.loc-ico svg {
+  width: 20px;
+  height: 20px;
+}
+.loc-strong {
   font-family: var(--display);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+.loc-link:hover {
+  color: var(--coral-deep);
+}
+.loc-sub {
+  font-size: 0.9rem;
   color: var(--ink-70);
-  white-space: nowrap;
+  margin-top: 0.1rem;
 }
-.strip-item::after {
-  content: "✦";
-  color: var(--coral);
-  font-size: 0.8rem;
-}
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .strip-track {
-    animation: none;
-    flex-wrap: wrap;
-  }
+.location-info .btn {
+  margin-top: 1.9rem;
 }
 
 /* =====================================================================
@@ -1311,55 +1326,35 @@ section {
   z-index: 1;
 }
 
+/* Subtle, low-key map: desaturated so it reads as a calm locator, not a
+   loud interactive widget. */
 .map-wrap {
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--ink-15);
   box-shadow: var(--shadow-lg);
-  background: var(--paper-2);
+  background: var(--paper);
 }
 .map-wrap iframe {
   display: block;
   width: 100%;
-  height: 420px;
+  height: clamp(280px, 34vw, 380px);
   border: 0;
-  filter: grayscale(0.25) contrast(1.04) saturate(0.92);
+  filter: grayscale(0.55) contrast(1.02) saturate(0.78) brightness(1.02);
+  transition: filter 0.4s ease;
 }
-.map-badge {
-  position: absolute;
-  left: clamp(1rem, 2vw, 1.6rem);
-  bottom: clamp(1rem, 2vw, 1.6rem);
-  z-index: 2;
-  background: var(--paper);
-  border-radius: 16px;
-  padding: 1rem 1.2rem;
-  box-shadow: var(--shadow-lg);
-  max-width: 320px;
-}
-.map-badge .label {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--coral-deep);
-  font-weight: 600;
-}
-.map-badge .name {
-  font-family: var(--display);
-  font-size: 1.12rem;
-  margin-top: 0.3rem;
-}
-.map-badge .addr {
-  font-size: 0.9rem;
-  color: var(--ink-70);
-  margin-top: 0.15rem;
+.map-wrap:hover iframe {
+  filter: grayscale(0.1) contrast(1.03) saturate(1);
 }
 
 /* =====================================================================
    RESPONSIVE
    ===================================================================== */
 @media (max-width: 960px) {
+  .location .wrap {
+    grid-template-columns: 1fr;
+  }
   .doctors-grid {
     grid-template-columns: 1fr;
   }

@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Location from "./components/Location";
 import Services from "./components/Services";
 import Mission from "./components/Mission";
 import Doctors from "./components/Doctors";
@@ -14,6 +15,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Location />
         <Services />
         <Mission />
         <Doctors />
