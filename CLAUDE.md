@@ -4,7 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project state
 
-`gchc` is a freshly scaffolded **Vite + React 19 + TypeScript** single-page app. As of this writing it is the unmodified Vite starter template (`src/App.tsx` is the default landing page) — there is no application-specific architecture yet. Treat this as a greenfield project: structure and conventions are still to be established.
+`gchc` is the marketing website for **GC HeartCare**, a private cardiology practice at Gold Coast Private Hospital, Southport. It's a **Vite + React 19 + TypeScript** single-page app — one long scrolling landing page with anchor-linked sections (no router). It reproduces the content/functionality of the legacy site at gcheartcare.com with a fresher design.
+
+### Architecture
+- `src/App.tsx` composes the page from section components in `src/components/`: `Header`, `Hero`, `Services`, `Doctors`, `Team`, `Info` (patients + referrers), `Contact`, `Footer`.
+- `src/content.ts` is the single source of truth for all copy/data (practice details, nav, services, doctors, team, etc.). **Edit content here, not in components.**
+- `src/icons.tsx` holds the inline SVG icon set (stroke-based, `currentColor`).
+- `src/hooks.ts` has `useReveal` (IntersectionObserver scroll-in animations via the `.reveal` class) and `useScrolled`.
+- `src/index.css` is the whole design system: CSS variables + all section styles, class-based (no CSS modules / no Tailwind). Aesthetic is "coastal clinical" — cream paper, deep petrol-teal ink, coral "heartbeat" accent; fonts are Fraunces (display) + Hanken Grotesk (body), loaded in `index.html`.
+- The contact form is static-friendly: it composes a `mailto:` on submit (no backend).
 
 ## Commands
 
