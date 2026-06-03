@@ -21,9 +21,14 @@ export default function Team() {
           {TEAM.map((m) => (
             <article className="team-card reveal" key={m.name}>
               <div className="ta">
-                <div className="team-avatar" aria-hidden="true">
-                  {m.initials}
-                </div>
+                <img
+                  className="team-avatar"
+                  src={m.avatar}
+                  alt={m.name}
+                  width={108}
+                  height={108}
+                  loading="lazy"
+                />
                 <div>
                   <h3>{m.name}</h3>
                   <div className="role">{m.role}</div>

@@ -782,17 +782,15 @@ section {
   gap: 1.1rem;
 }
 .doc-avatar {
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   flex: none;
-  display: grid;
-  place-items: center;
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--ink);
+  object-fit: cover;
   background: linear-gradient(150deg, var(--aqua-soft), var(--sand));
-  letter-spacing: -0.02em;
+  border: 2px solid rgba(196, 182, 223, 0.45);
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.5);
+  filter: saturate(0.94);
 }
 .doc-name h3 {
   font-size: 1.5rem;
@@ -880,16 +878,14 @@ section {
   gap: 0.9rem;
 }
 .team-avatar {
-  width: 54px;
-  height: 54px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: var(--display);
-  font-size: 1.2rem;
-  color: var(--paper);
-  background: var(--ink);
   flex: none;
+  object-fit: cover;
+  background: var(--paper-deep);
+  border: 2px solid var(--ink-08);
+  filter: saturate(0.94);
 }
 .team-card h3 {
   font-size: 1.3rem;

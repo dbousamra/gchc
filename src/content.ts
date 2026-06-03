@@ -104,6 +104,7 @@ export const SERVICES: Service[] = [
 export type Doctor = {
   name: string;
   initials: string;
+  avatar: string; // placeholder portrait — replace with a real headshot
   role: string;
   quals: string[];
   bio: string;
@@ -114,6 +115,7 @@ export const DOCTORS: Doctor[] = [
   {
     name: "Dr John Bou-Samra",
     initials: "JB",
+    avatar: asset("avatars/bou-samra.jpg"),
     role: "Cardiologist & Physician",
     quals: ["MBBS", "FRACP", "FCSANZ", "FASE"],
     bio: "Dr Bou-Samra has provided high-quality specialist cardiology care to patients on the Gold Coast since 1994. He completed his medical degree at the University of Queensland and advanced cardiology training at The Prince Charles Hospital, Brisbane, and remains actively involved in the mentorship of medical students and future specialists.",
@@ -128,6 +130,7 @@ export const DOCTORS: Doctor[] = [
   {
     name: "Professor Kuljit Singh",
     initials: "KS",
+    avatar: asset("avatars/kuljit-singh.jpg"),
     role: "Interventional Cardiologist",
     quals: ["MBBS", "PhD", "FRACP"],
     bio: "An academic coronary and structural interventional cardiologist, Professor Singh trained in Adelaide and as a fellow at the Ottawa Heart Institute in Canada. He established the TAVI program at Gold Coast University Hospital and holds Associate Professor appointments at Griffith and Bond Universities, with more than fifty publications in high-impact journals.",
@@ -141,6 +144,7 @@ export const DOCTORS: Doctor[] = [
   {
     name: "Dr Tony Vo",
     initials: "TV",
+    avatar: asset("avatars/tony-vo.jpg"),
     role: "Interventional Cardiologist",
     quals: ["MBBS", "FRACP"],
     bio: "Dr Vo is a specialist and interventional cardiologist providing inpatient and outpatient care at Gold Coast University Hospital and Gold Coast Private Hospital. He completed his medical degree at the University of Melbourne and his interventional fellowship on the Gold Coast, performing both coronary and structural procedures.",
@@ -154,6 +158,7 @@ export const DOCTORS: Doctor[] = [
   {
     name: "Dr Naim Mridha",
     initials: "NM",
+    avatar: asset("avatars/naim-mridha.jpg"),
     role: "Interventional Cardiologist",
     quals: ["MBBS", "FRACP"],
     bio: "A lifelong Gold Coast local, Dr Mridha trained across The Royal Brisbane & Women's Hospital and Gold Coast University Hospital before completing a two-year interventional fellowship at The Prince Charles Hospital. He is a Senior Lecturer at Griffith University and is passionate about giving back to the community that shaped him.",
@@ -169,20 +174,23 @@ export const DOCTORS: Doctor[] = [
 export type TeamMember = {
   name: string;
   initials: string;
+  avatar: string; // placeholder portrait — replace with a real headshot
   role: string;
   bio: string;
 };
 
 export const TEAM: TeamMember[] = [
   {
-    name: "Christen",
-    initials: "C",
+    name: "Christen Courtland",
+    initials: "CC",
+    avatar: asset("avatars/christen-courtland.jpg"),
     role: "Accredited Cardiac Sonographer",
     bio: "BExSc, DMU (Cardiac) and an ASAR member since 2001. With nearly two decades of cardiac ultrasound experience across private and hospital settings, Christen actively mentors echocardiography students and healthcare professionals.",
   },
   {
-    name: "Kirsty",
-    initials: "K",
+    name: "Kirsty Collins",
+    initials: "KC",
+    avatar: asset("avatars/kirsty-collins.jpg"),
     role: "Accredited Cardiac Sonographer",
     bio: "Grad Dip HlthSc, DMU (Cardiac) and an ASAR member since 2003. Kirsty's expertise spans transthoracic, stress and dobutamine stress echocardiography, along with contrast and strain imaging.",
   },

@@ -22,9 +22,14 @@ export default function Doctors() {
           {DOCTORS.map((d) => (
             <article className="doc-card reveal" key={d.name}>
               <div className="doc-top">
-                <div className="doc-avatar" aria-hidden="true">
-                  {d.initials}
-                </div>
+                <img
+                  className="doc-avatar"
+                  src={d.avatar}
+                  alt={d.name}
+                  width={140}
+                  height={140}
+                  loading="lazy"
+                />
                 <div className="doc-name">
                   <h3>{d.name}</h3>
                   <div className="doc-role">{d.role}</div>
