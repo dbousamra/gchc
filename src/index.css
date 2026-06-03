@@ -387,6 +387,33 @@ section {
   height: 26px;
 }
 
+/* Until scrolled, the header floats over the dark hero photo: flip its
+   content to light so the logo and nav stay legible. */
+.site-header:not(.scrolled) .brand-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.94;
+}
+.site-header:not(.scrolled) .nav-links a {
+  color: rgba(244, 241, 248, 0.92);
+}
+.site-header:not(.scrolled) .nav-links a:hover {
+  color: var(--cream-on-dark);
+}
+.site-header:not(.scrolled) .nav-links a::after {
+  background: var(--aqua-soft);
+}
+.site-header:not(.scrolled) .header-cta {
+  background: var(--cream-on-dark);
+  color: var(--ink);
+}
+.site-header:not(.scrolled) .header-cta:hover {
+  background: var(--aqua-soft);
+  color: var(--ink);
+}
+.site-header:not(.scrolled) .nav-toggle {
+  color: var(--cream-on-dark);
+}
+
 /* mobile nav */
 .mobile-nav {
   position: fixed;
@@ -428,134 +455,143 @@ section {
    ===================================================================== */
 .hero {
   position: relative;
-  padding-top: clamp(8rem, 16vh, 11rem);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
+  min-height: min(92vh, 900px);
+  display: flex;
+  align-items: center;
+  padding-top: clamp(7rem, 13vh, 9.5rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
   overflow: hidden;
+  color: var(--cream-on-dark);
+  isolation: isolate;
 }
 
-.hero-bg {
+/* Full-bleed photo behind the heading */
+.hero-photo {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  z-index: -1;
+  background-size: cover;
+  background-position: 68% center;
+  background-repeat: no-repeat;
 }
-.hero-glow {
+/* Aubergine wash: heavy at the left for legibility, lighter over the couple at
+   right so the photo stays warm. Plus a floor gradient into the strip below. */
+.hero-photo::after {
+  content: "";
   position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.5;
-}
-.hero-glow.g1 {
-  width: 38vw;
-  height: 38vw;
-  top: -12vw;
-  right: -8vw;
-  background: radial-gradient(circle, rgba(196, 182, 223, 0.55), transparent 70%);
-}
-.hero-glow.g2 {
-  width: 30vw;
-  height: 30vw;
-  bottom: -10vw;
-  left: -6vw;
-  background: radial-gradient(circle, rgba(140, 120, 184, 0.28), transparent 70%);
+  inset: 0;
+  background: linear-gradient(
+      100deg,
+      rgba(19, 11, 29, 0.95) 0%,
+      rgba(24, 15, 36, 0.84) 36%,
+      rgba(28, 18, 42, 0.52) 68%,
+      rgba(28, 18, 42, 0.32) 100%
+    ),
+    /* top scrim so the floating navbar stays legible across the full width */
+    linear-gradient(to bottom, rgba(17, 10, 26, 0.7) 0%, transparent 16%),
+    linear-gradient(to top, rgba(19, 11, 29, 0.72) 0%, transparent 42%);
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
+.hero-inner {
+  width: 100%;
+}
+.hero-copy {
+  max-width: 660px;
+}
+
+/* Load-in animation (time-based, not scroll-gated) so the hero is never blank.
+   Ends fully visible; disabled under reduced-motion. */
+.hero-copy > * {
+  animation: hero-rise 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.13s;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.21s;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.29s;
+}
+.hero-copy > *:nth-child(5) {
+  animation-delay: 0.37s;
+}
+.hero-copy > *:nth-child(6) {
+  animation-delay: 0.45s;
+}
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > * {
+    animation: none;
+  }
 }
 
 .hero h1 {
-  font-size: clamp(2.9rem, 7vw, 5.6rem);
+  font-size: clamp(2.9rem, 6.4vw, 5.4rem);
   letter-spacing: -0.035em;
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--coral);
+  color: var(--aqua-soft);
 }
 
 .hero-lead {
-  margin-top: 1.6rem;
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-  color: var(--ink-70);
-  max-width: 34ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(244, 241, 248, 0.82);
+  max-width: 46ch;
 }
 
 .hero-actions {
-  margin-top: 2.2rem;
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
 }
 
 .hero-meta {
-  margin-top: 2.6rem;
+  margin-top: 2.4rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 2.2rem;
-  padding-top: 1.8rem;
-  border-top: 1px solid var(--ink-15);
+  gap: 2.4rem;
+  padding-top: 1.7rem;
+  border-top: 1px solid rgba(244, 241, 248, 0.22);
 }
 .hero-meta .label {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-label);
+  color: rgba(244, 241, 248, 0.72);
   margin-bottom: 0.35rem;
 }
 .hero-meta .value {
   font-family: var(--display);
   font-size: 1.25rem;
+  color: var(--cream-on-dark);
 }
 .hero-meta a.value:hover {
-  color: var(--coral-deep);
-}
-
-/* hero card with ECG */
-.hero-card {
-  position: relative;
-  background: var(--ink);
-  color: var(--cream-on-dark);
-  border-radius: var(--radius-lg);
-  padding: 2.2rem;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-}
-.hero-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    120% 80% at 80% 0%,
-    rgba(196, 182, 223, 0.22),
-    transparent 60%
-  );
-  pointer-events: none;
-}
-.hero-card .card-kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
   color: var(--aqua-soft);
 }
-.hero-card h3 {
-  font-size: 1.7rem;
-  margin-top: 0.7rem;
-  line-height: 1.1;
-}
-.hero-card p {
-  margin-top: 0.7rem;
-  color: var(--dim-on-dark);
-  font-size: 0.96rem;
-}
 
+/* ECG accent line beneath the lead (brand signature) */
 .ecg {
-  margin-top: 1.6rem;
-  width: 100%;
-  height: 72px;
+  margin-top: 1.7rem;
+  width: clamp(180px, 55%, 300px);
+  height: 38px;
   overflow: hidden;
 }
 .ecg svg {
@@ -564,18 +600,18 @@ section {
 }
 .ecg path {
   fill: none;
-  stroke: var(--coral);
-  stroke-width: 2.4;
+  stroke: var(--aqua-soft);
+  stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 6px rgba(140, 120, 184, 0.6));
-  stroke-dasharray: 2200;
-  stroke-dashoffset: 2200;
+  filter: drop-shadow(0 0 7px rgba(183, 157, 240, 0.75));
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
   animation: ecg-draw 3.6s ease-in-out infinite;
 }
 @keyframes ecg-draw {
   0% {
-    stroke-dashoffset: 2200;
+    stroke-dashoffset: 100;
   }
   55%,
   100% {
@@ -587,29 +623,6 @@ section {
     animation: none;
     stroke-dashoffset: 0;
   }
-}
-
-.hero-card .card-stats {
-  margin-top: 1.6rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  border-top: 1px solid rgba(244, 241, 248, 0.14);
-  padding-top: 1.4rem;
-}
-.card-stats .n {
-  font-family: var(--display);
-  font-size: 2rem;
-  color: var(--cream-on-dark);
-  line-height: 1;
-}
-.card-stats .n span {
-  color: var(--coral);
-}
-.card-stats .t {
-  margin-top: 0.35rem;
-  font-size: 0.82rem;
-  color: var(--dim-on-dark);
 }
 
 /* marquee strip of services */
@@ -1221,32 +1234,6 @@ section {
 }
 
 /* =====================================================================
-   HERO CARD — photo treatment
-   ===================================================================== */
-.hero-card.has-photo {
-  background-color: var(--ink);
-  background-size: cover;
-  background-position: center 18%;
-  isolation: isolate;
-}
-.hero-card.has-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-      165deg,
-      rgba(39, 26, 56, 0.62) 0%,
-      rgba(39, 26, 56, 0.9) 55%,
-      rgba(20, 12, 32, 0.97) 100%
-    );
-}
-.hero-card.has-photo > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* =====================================================================
    MISSION BAND (anatomical heart photo)
    ===================================================================== */
 .mission {
@@ -1373,12 +1360,6 @@ section {
    RESPONSIVE
    ===================================================================== */
 @media (max-width: 960px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-card {
-    order: -1;
-  }
   .doctors-grid {
     grid-template-columns: 1fr;
   }
@@ -1415,6 +1396,12 @@ section {
   .form-row {
     grid-template-columns: 1fr;
   }
+  /* Top-align the hero on mobile so the heading is visible at load instead of
+     sitting low behind a tall band of photo. */
+  .hero {
+    align-items: flex-start;
+    min-height: min(90vh, 760px);
+  }
   .hero-meta {
     gap: 1.4rem;
   }
@@ -1425,8 +1412,7 @@ section {
     grid-template-columns: 1fr;
     gap: 1.8rem;
   }
-  .doc-card,
-  .hero-card {
+  .doc-card {
     padding: 1.5rem;
   }
 }

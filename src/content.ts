@@ -6,7 +6,7 @@ export const asset = (p: string) => `${import.meta.env.BASE_URL}${p}`;
 
 export const IMAGES = {
   logo: asset("logo.png"),
-  cardiologist: asset("img-cardiologist.jpg"),
+  hero: asset("img-hero.jpg"),
   heart: asset("img-heart.jpg"),
   clinic: asset("img-clinic.jpg"),
 };
