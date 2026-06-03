@@ -9,7 +9,6 @@ export default function Info() {
     <section className="info-band section-pad" id="patients" ref={ref}>
       <div className="wrap">
         <div className="section-head reveal" style={{ marginBottom: "clamp(2.2rem, 4vw, 3.2rem)" }}>
-          <span className="eyebrow">For patients &amp; referrers</span>
           <h2>Everything you need before your visit.</h2>
         </div>
 

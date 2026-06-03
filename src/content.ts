@@ -58,48 +58,72 @@ export type Service = {
   body: string;
 };
 
-export const SERVICES: Service[] = [
+export type ServiceGroup = {
+  key: string;
+  title: string;
+  blurb: string;
+  items: Service[];
+};
+
+export const SERVICE_GROUPS: ServiceGroup[] = [
   {
-    icon: "consult",
-    title: "Clinical consultation",
-    body: "Specialist assessment, cardiovascular risk evaluation and an evidence-based plan tailored to you.",
+    key: "diagnose",
+    title: "Diagnose & investigate",
+    blurb: "Non-invasive imaging and testing to see clearly what your heart is doing.",
+    items: [
+      {
+        icon: "consult",
+        title: "Clinical consultation",
+        body: "Specialist assessment, cardiovascular risk evaluation and an evidence-based plan tailored to you.",
+      },
+      {
+        icon: "echo",
+        title: "Echocardiography",
+        body: "Transthoracic, transoesophageal and stress echo: detailed ultrasound imaging of the heart's structure and function.",
+      },
+      {
+        icon: "stress",
+        title: "Stress testing",
+        body: "Exercise stress tests and stress echocardiography to assess how your heart performs under exertion.",
+      },
+      {
+        icon: "ecg",
+        title: "ECG & Holter monitoring",
+        body: "Electrocardiograms and extended Holter recordings to capture and diagnose rhythm disturbances.",
+      },
+      {
+        icon: "angio",
+        title: "Diagnostic angiography",
+        body: "Imaging of the coronary arteries to investigate chest pain, angina and coronary artery disease.",
+      },
+    ],
   },
   {
-    icon: "echo",
-    title: "Echocardiography",
-    body: "Transthoracic, transoesophageal and stress echo — detailed ultrasound imaging of the heart's structure and function.",
-  },
-  {
-    icon: "stress",
-    title: "Stress testing",
-    body: "Exercise stress tests and stress echocardiography to assess how your heart performs under exertion.",
-  },
-  {
-    icon: "ecg",
-    title: "ECG & Holter monitoring",
-    body: "Electrocardiograms and extended Holter recordings to capture and diagnose rhythm disturbances.",
-  },
-  {
-    icon: "device",
-    title: "Pacemakers & defibrillators",
-    body: "Implantation, programming and ongoing testing of pacemakers, defibrillators and loop recorders.",
-  },
-  {
-    icon: "angio",
-    title: "Diagnostic angiography",
-    body: "Imaging of the coronary arteries to investigate chest pain, angina and coronary artery disease.",
-  },
-  {
-    icon: "cardioversion",
-    title: "Cardioversion",
-    body: "Carefully managed electrical treatment to restore a normal rhythm in atrial fibrillation and flutter.",
-  },
-  {
-    icon: "monitor",
-    title: "Heart failure & arrhythmia care",
-    body: "Ongoing management of heart failure, cardiomyopathy, angina and complex rhythm disorders.",
+    key: "treat",
+    title: "Treat & manage",
+    blurb: "Procedures and ongoing specialist care to restore and protect your rhythm.",
+    items: [
+      {
+        icon: "device",
+        title: "Pacemakers & defibrillators",
+        body: "Implantation, programming and ongoing testing of pacemakers, defibrillators and loop recorders.",
+      },
+      {
+        icon: "cardioversion",
+        title: "Cardioversion",
+        body: "Carefully managed electrical treatment to restore a normal rhythm in atrial fibrillation and flutter.",
+      },
+      {
+        icon: "monitor",
+        title: "Heart failure & arrhythmia care",
+        body: "Ongoing management of heart failure, cardiomyopathy, angina and complex rhythm disorders.",
+      },
+    ],
   },
 ];
+
+// Flattened list (used by the hero marquee strip).
+export const SERVICES: Service[] = SERVICE_GROUPS.flatMap((g) => g.items);
 
 export type Doctor = {
   name: string;

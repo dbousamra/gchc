@@ -19,7 +19,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${name}\n` +
         `Email: ${f.get("email") ?? ""}\n` +
-        `Referring doctor: ${f.get("referrer") || "—"}\n\n` +
+        `Referring doctor: ${f.get("referrer") || "(not provided)"}\n\n` +
         `${f.get("message") ?? ""}`
     );
     window.location.href = `${PRACTICE.emailHref}?subject=${subject}&body=${body}`;
@@ -30,7 +30,6 @@ export default function Contact() {
     <section className="contact section-pad" id="contact" ref={ref}>
       <div className="wrap">
         <div className="section-head reveal">
-          <span className="eyebrow">Contact</span>
           <h2>We're here to help.</h2>
           <p>
             Call us, send an enquiry, or visit us at Gold Coast Private Hospital.
@@ -94,32 +93,44 @@ export default function Contact() {
             <h3>Send an enquiry</h3>
             <div className="form-row">
               <div className="field">
-                <label htmlFor="first">First name</label>
+                <label htmlFor="first">
+                  First name <span className="req" aria-hidden="true">*</span>
+                </label>
                 <input id="first" name="first" autoComplete="given-name" required />
               </div>
               <div className="field">
-                <label htmlFor="last">Last name</label>
+                <label htmlFor="last">
+                  Last name <span className="req" aria-hidden="true">*</span>
+                </label>
                 <input id="last" name="last" autoComplete="family-name" required />
               </div>
             </div>
 
             <div className="field">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">
+                Email <span className="req" aria-hidden="true">*</span>
+              </label>
               <input id="email" name="email" type="email" autoComplete="email" required />
             </div>
 
             <div className="field">
-              <label htmlFor="referrer">Referring doctor (optional)</label>
+              <label htmlFor="referrer">
+                Referring doctor <span className="opt">(optional)</span>
+              </label>
               <input id="referrer" name="referrer" />
             </div>
 
             <div className="field">
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject">
+                Subject <span className="opt">(optional)</span>
+              </label>
               <input id="subject" name="subject" />
             </div>
 
             <div className="field">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">
+                Message <span className="req" aria-hidden="true">*</span>
+              </label>
               <textarea id="message" name="message" required />
             </div>
 

@@ -8,11 +8,10 @@ export default function Team() {
     <section className="team section-pad" id="team" ref={ref}>
       <div className="wrap">
         <div className="section-head reveal">
-          <span className="eyebrow">Sonographers &amp; technicians</span>
           <h2>The people behind your imaging.</h2>
           <p>
             Our accredited cardiac sonographers bring decades of combined
-            experience to every echocardiogram and stress study — and a genuine
+            experience to every echocardiogram and stress study, and a genuine
             commitment to your comfort and care.
           </p>
         </div>

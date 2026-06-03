@@ -125,6 +125,12 @@ h3 {
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.02em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .eyebrow {
@@ -201,6 +207,10 @@ section {
 .btn-primary:hover {
   background: var(--coral-deep);
   transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-ink {
@@ -371,6 +381,10 @@ section {
   align-items: center;
   justify-content: center;
   color: var(--ink);
+}
+.nav-toggle svg {
+  width: 26px;
+  height: 26px;
 }
 
 /* mobile nav */
@@ -651,7 +665,6 @@ section {
 }
 .section-head h2 {
   font-size: clamp(2.1rem, 4.5vw, 3.6rem);
-  margin-top: 1rem;
 }
 .section-head p {
   margin-top: 1.2rem;
@@ -677,55 +690,79 @@ section {
 .services {
   background: var(--paper);
 }
-.services-grid {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
+/* Two themed groups, deliberately uneven (5 + 3), as lists rather than a
+   uniform card grid. Asymmetry and grouping carry the rhythm. */
+.service-groups {
+  margin-top: clamp(2.8rem, 5vw, 4.5rem);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: clamp(2.5rem, 5vw, 4.5rem);
 }
-.svc-card {
-  background: var(--paper-2);
-  border: 1px solid var(--ink-08);
-  border-radius: var(--radius);
-  padding: 1.7rem 1.6rem 1.8rem;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.4s,
-    border-color 0.4s, box-shadow 0.4s;
+.service-group + .service-group {
   position: relative;
-  overflow: hidden;
 }
-.svc-card:hover {
-  transform: translateY(-5px);
-  background: var(--paper);
-  border-color: var(--coral);
-  box-shadow: var(--shadow-lg);
+.service-group-title {
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
 }
-.svc-icon {
+.service-group-blurb {
+  margin-top: 0.7rem;
+  color: var(--ink-70);
+  font-size: 1.02rem;
+  max-width: 40ch;
+}
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.8rem;
+}
+.service-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.1rem;
+  align-items: start;
+  padding: 1.25rem 0.9rem 1.25rem 0.7rem;
+  border-top: 1px solid var(--ink-08);
+  border-radius: 14px;
+  transition: background 0.3s ease;
+}
+.service-row:first-child {
+  border-top: 0;
+}
+.service-row:hover {
+  background: var(--paper-2);
+}
+.service-row-icon {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: var(--ink);
-  color: var(--aqua-soft);
+  flex: none;
   display: grid;
   place-items: center;
-  margin-bottom: 1.1rem;
-  transition: background 0.4s, color 0.4s;
+  background: var(--paper-2);
+  color: var(--coral-deep);
+  border: 1px solid var(--ink-08);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-.svc-icon svg {
-  width: 24px;
-  height: 24px;
-}
-.svc-card:hover .svc-icon {
+.service-row:hover .service-row-icon {
   background: var(--coral);
   color: var(--paper);
+  border-color: var(--coral);
 }
-.svc-card h3 {
-  font-size: 1.28rem;
-  letter-spacing: -0.01em;
+.service-row-icon svg {
+  width: 23px;
+  height: 23px;
 }
-.svc-card p {
-  margin-top: 0.6rem;
+.service-row-title {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.005em;
+}
+.service-row-body {
+  margin-top: 0.3rem;
   font-size: 0.95rem;
   color: var(--ink-70);
+  max-width: 54ch;
 }
 
 /* =====================================================================
@@ -1070,6 +1107,13 @@ section {
   letter-spacing: 0.04em;
   color: var(--ink-70);
 }
+.field label .req {
+  color: var(--coral-deep);
+}
+.field label .opt {
+  font-weight: 400;
+  color: var(--ink-label);
+}
 .field input,
 .field textarea {
   font: inherit;
@@ -1349,6 +1393,14 @@ section {
   }
   .footer-brand {
     grid-column: 1 / -1;
+  }
+}
+
+/* The mobile menu and its toggle only exist below the breakpoint; hide the
+   overlay above it so an open menu can't linger (and trap) after a resize. */
+@media (min-width: 721px) {
+  .mobile-nav {
+    display: none;
   }
 }
 

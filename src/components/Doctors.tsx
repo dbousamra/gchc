@@ -8,11 +8,10 @@ export default function Doctors() {
     <section className="doctors section-pad" id="doctors" ref={ref}>
       <div className="wrap">
         <div className="section-head reveal">
-          <span className="eyebrow on-dark">Our doctors</span>
           <h2>A team of leading cardiologists.</h2>
           <p>
             Patients are cared for by experienced specialists spanning advanced
-            heart failure, structural and interventional cardiology — backed by
+            heart failure, structural and interventional cardiology, backed by
             academic and research expertise across the Gold Coast's major
             hospitals.
           </p>

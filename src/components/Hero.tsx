@@ -23,7 +23,7 @@ export default function Hero() {
           </h1>
           <p className="hero-lead reveal">
             Specialist cardiology, advanced echocardiography and cardiac device
-            care — delivered by a multidisciplinary team committed to timely
+            care, delivered by a multidisciplinary team committed to timely
             appointments and efficient reporting.
           </p>
 
@@ -110,7 +110,7 @@ export default function Hero() {
           }}
         >
           <Clock className="inline-ico" /> Same-week appointments available for
-          urgent referrals — call {PRACTICE.phone}
+          urgent referrals. Call {PRACTICE.phone}
         </p>
       </div>
     </section>

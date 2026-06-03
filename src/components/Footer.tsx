@@ -14,8 +14,8 @@ export default function Footer() {
               height={164}
             />
             <p>
-              Private specialist cardiology on the Gold Coast since 1994 —
-              {" "}{PRACTICE.tagline.toLowerCase()}.
+              Private specialist cardiology on the Gold Coast since 1994.{" "}
+              {PRACTICE.tagline}.
             </p>
           </div>
 
