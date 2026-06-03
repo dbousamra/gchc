@@ -1,5 +1,5 @@
 import { BRING_LIST, PRACTICE, IMAGES } from "../content";
-import { Check, Download, ArrowRight } from "../icons";
+import { Check, Download, ArrowRight, Mail, Phone, Message } from "../icons";
 import { useReveal } from "../hooks";
 
 export default function Info() {
@@ -50,28 +50,43 @@ export default function Info() {
             <span className="eyebrow on-dark">For referrers</span>
             <h3>Referring a patient</h3>
             <p>
-              We welcome referrals from GPs and specialists, and are committed to
-              timely appointments and efficient, clear reporting back to you.
-              Download a referral form below, or contact our reception to arrange
-              hard-copy referral pads delivered to your practice.
+              We welcome referrals from GPs and specialists. Your patient is
+              seen promptly, and you receive a clear, timely report after every
+              consultation and test.
             </p>
+
+            <div className="ref-methods">
+              <div className="ref-label">How to refer</div>
+              <ul>
+                <li>
+                  <Message />
+                  <div>
+                    <span>Secure messaging</span>
+                    <small>HealthLink &amp; Medical Objects</small>
+                  </div>
+                </li>
+                <li>
+                  <Mail />
+                  <div>
+                    <a href={PRACTICE.emailHref}>{PRACTICE.email}</a>
+                    <small>Email a referral or query</small>
+                  </div>
+                </li>
+                <li>
+                  <Phone />
+                  <div>
+                    <a href={PRACTICE.phoneHref}>{PRACTICE.phone}</a>
+                    <small>Speak with our reception</small>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
             <div className="ref-actions">
               <a className="btn btn-primary" href={PRACTICE.emailHref}>
                 <Download /> Request referral form
               </a>
-              <a className="btn btn-ghost on-dark" href={PRACTICE.phoneHref}>
-                Phone {PRACTICE.phone}
-              </a>
             </div>
-
-            <p className="ref-note">
-              Prefer to send a referral directly? Email{" "}
-              <a href={PRACTICE.emailHref} style={{ color: "var(--aqua-soft)", fontWeight: 600 }}>
-                {PRACTICE.email}
-              </a>{" "}
-              and our staff will be in touch.
-            </p>
           </article>
         </div>
       </div>

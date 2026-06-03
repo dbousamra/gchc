@@ -35,8 +35,8 @@ export type NavItem = { label: string; href: string };
 
 export const NAV: NavItem[] = [
   { label: "Care", href: "#services" },
+  { label: "Conditions", href: "#conditions" },
   { label: "Our Doctors", href: "#doctors" },
-  { label: "Our Team", href: "#team" },
   { label: "For Patients", href: "#patients" },
   { label: "Referrers", href: "#referrers" },
   { label: "Contact", href: "#contact" },
@@ -225,7 +225,42 @@ export const BRING_LIST = [
   "Your private health insurance card",
 ];
 
-export const STATS = [
-  { n: "1994", t: "Caring for the Gold Coast" },
-  { n: "4", t: "Specialist cardiologists" },
+export type Condition = { name: string; body: string };
+
+export const CONDITIONS: Condition[] = [
+  {
+    name: "Coronary artery disease",
+    body: "Narrowing of the arteries that supply the heart, and a common cause of chest pain or a heart attack. We investigate it with stress testing and angiography, and manage your risk factors to slow its progression.",
+  },
+  {
+    name: "Angina",
+    body: "Chest tightness, pressure or breathlessness, usually brought on by exertion, when the heart isn't getting enough blood. We confirm the cause and tailor treatment to settle symptoms and protect your heart.",
+  },
+  {
+    name: "Heart attack",
+    body: "A sudden blockage of blood flow to part of the heart muscle. We provide assessment, recovery care and a clear plan to lower the chance of it happening again.",
+  },
+  {
+    name: "Arrhythmias & atrial fibrillation",
+    body: "Irregular, fast or slow heart rhythms, including atrial fibrillation. We diagnose them with ECG and Holter monitoring and manage them with medication, cardioversion or implantable devices.",
+  },
+  {
+    name: "Heart failure & cardiomyopathy",
+    body: "When the heart muscle can't pump as effectively as it should. A particular focus of our practice, with advanced assessment, echocardiography and ongoing specialist management.",
+  },
+  {
+    name: "Valvular heart disease",
+    body: "When one or more of the heart's valves don't open or close properly. We assess severity with echocardiography and help guide the timing of any treatment.",
+  },
+];
+
+export type Affiliation = { short: string; full: string };
+
+// Professional bodies the team belongs to, and the hospital affiliation.
+export const AFFILIATIONS: Affiliation[] = [
+  { short: "RACP", full: "Royal Australasian College of Physicians" },
+  { short: "CSANZ", full: "Cardiac Society of Australia & New Zealand" },
+  { short: "ASE", full: "American Society of Echocardiography" },
+  { short: "ASAR", full: "Australian Sonographer Accreditation Registry" },
+  { short: "GCPH", full: "Gold Coast Private Hospital" },
 ];

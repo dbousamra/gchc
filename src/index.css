@@ -1349,6 +1349,182 @@ section {
 }
 
 /* =====================================================================
+   CONDITIONS (accordion)
+   ===================================================================== */
+.conditions {
+  background: var(--paper);
+}
+.condition-list {
+  margin-top: clamp(2.2rem, 4vw, 3.2rem);
+  border-top: 1px solid var(--ink-15);
+  max-width: 940px;
+}
+.condition {
+  border-bottom: 1px solid var(--ink-15);
+}
+.condition summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 0.25rem;
+}
+.condition summary::-webkit-details-marker {
+  display: none;
+}
+.condition-name {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+.condition summary:hover .condition-name {
+  color: var(--coral-deep);
+}
+.condition-chevron {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--ink-15);
+  color: var(--coral-deep);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.condition-chevron svg {
+  width: 18px;
+  height: 18px;
+}
+.condition[open] .condition-chevron {
+  transform: rotate(180deg);
+  background: var(--coral);
+  color: var(--paper);
+  border-color: var(--coral);
+}
+.condition-body {
+  padding: 0 0 1.5rem;
+  max-width: 72ch;
+  color: var(--ink-70);
+  font-size: 1.02rem;
+}
+.condition[open] .condition-body {
+  animation: cond-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes cond-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+.conditions-note {
+  margin-top: 2.1rem;
+  font-size: 0.92rem;
+  color: var(--ink-70);
+  max-width: 70ch;
+}
+.conditions-note strong {
+  color: var(--coral-deep);
+}
+@media (prefers-reduced-motion: reduce) {
+  .condition[open] .condition-body {
+    animation: none;
+  }
+}
+
+/* =====================================================================
+   CREDENTIALS / affiliations strip
+   ===================================================================== */
+.credentials {
+  background: var(--paper-deep);
+  border-block: 1px solid var(--ink-08);
+}
+.credentials .wrap {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.8rem, 3vw, 2.2rem);
+  flex-wrap: wrap;
+  padding-block: 1.4rem;
+}
+.credentials-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+  font-weight: 600;
+  flex: none;
+}
+.credentials-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0;
+  align-items: baseline;
+  font-size: 0.92rem;
+  color: var(--ink-70);
+}
+.credentials-list li {
+  display: inline-flex;
+  align-items: baseline;
+}
+.credentials-list li:not(:last-child)::after {
+  content: "·";
+  margin-inline: 0.85rem;
+  color: var(--coral);
+}
+
+/* =====================================================================
+   REFERRER methods (inside the dark referrer card)
+   ===================================================================== */
+.ref-methods {
+  margin-top: 1.6rem;
+}
+.ref-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim-on-dark);
+  margin-bottom: 0.85rem;
+}
+.ref-methods ul {
+  list-style: none;
+  display: grid;
+  gap: 0.95rem;
+}
+.ref-methods li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.ref-methods li svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: var(--aqua-soft);
+}
+.ref-methods li > div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.ref-methods li span,
+.ref-methods li a {
+  font-weight: 600;
+  color: var(--cream-on-dark);
+  font-size: 0.98rem;
+}
+.ref-methods li a:hover {
+  color: var(--aqua-soft);
+}
+.ref-methods li small {
+  color: var(--dim-on-dark);
+  font-size: 0.82rem;
+}
+
+/* =====================================================================
    RESPONSIVE
    ===================================================================== */
 @media (max-width: 960px) {

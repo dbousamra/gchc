@@ -132,6 +132,19 @@ export const Close = ({ className }: P) => (
   </svg>
 );
 
+export const Chevron = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+export const Message = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 5h16v11H9l-4 3v-3H4z" />
+    <path d="M8 9h8M8 12h5" />
+  </svg>
+);
+
 export const Heart = ({ className }: P) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 21s-7-4.6-9.3-9.2C1.2 8.6 2.6 5 6 5c2 0 3.2 1.2 4 2.4C10.8 6.2 12 5 14 5c3.4 0 4.8 3.6 3.3 6.8C19 16.4 12 21 12 21z" />
