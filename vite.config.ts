@@ -2,10 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-// `base` is '/' for serving from a custom domain root (gcheartcare.com).
-// For GitHub Pages *project* hosting (gcheartcare.github.io/gchc/) build with
-// `vite build --base=/gchc/` instead.
+// `base` MUST match the path the site is served from.
+// Currently deployed to GitHub Pages project hosting at
+// https://dbousamra.github.io/gchc/ , so base is '/gchc/'.
+// When a custom domain (e.g. gcheartcare.com) is live at the root, switch this
+// to '/' and add a `public/CNAME` file containing the domain.
 export default defineConfig({
-  base: '/',
+  base: '/gchc/',
   plugins: [react()],
 })
