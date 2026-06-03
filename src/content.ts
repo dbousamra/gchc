@@ -122,9 +122,6 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   },
 ];
 
-// Flattened list (used by the hero marquee strip).
-export const SERVICES: Service[] = SERVICE_GROUPS.flatMap((g) => g.items);
-
 export type Doctor = {
   name: string;
   initials: string;

@@ -1,15 +1,12 @@
 import { PRACTICE, IMAGES } from "../content";
 import { ArrowRight } from "../icons";
-import { useReveal } from "../hooks";
 
 const ECG_PATH =
   "M0 20 H150 L160 20 L168 6 L178 38 L188 20 L200 20 L210 2 L226 44 L238 20 L300 20";
 
 export default function Hero() {
-  const ref = useReveal<HTMLElement>();
-
   return (
-    <section className="hero" id="top" ref={ref}>
+    <section className="hero" id="top">
       <div
         className="hero-photo"
         style={{ backgroundImage: `url(${IMAGES.hero})` }}

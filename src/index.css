@@ -475,7 +475,7 @@ section {
   background-repeat: no-repeat;
 }
 /* Aubergine wash: heavy at the left for legibility, lighter over the couple at
-   right so the photo stays warm. Plus a floor gradient into the strip below. */
+   right so the photo stays warm. Plus a floor gradient into the band below. */
 .hero-photo::after {
   content: "";
   position: absolute;
