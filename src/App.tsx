@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 import Location from "./components/Location";
 import Services from "./components/Services";
 import Conditions from "./components/Conditions";
-import Mission from "./components/Mission";
+import Story from "./components/Story";
 import Doctors from "./components/Doctors";
 import Credentials from "./components/Credentials";
 import Team from "./components/Team";
@@ -18,12 +18,12 @@ export default function App() {
       <main>
         <Hero />
         <Location />
-        <Services />
-        <Conditions />
-        <Mission />
+        <Story />
         <Doctors />
         <Credentials />
         <Team />
+        <Services />
+        <Conditions />
         <Info />
         <Contact />
       </main>

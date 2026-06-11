@@ -8,7 +8,7 @@ export default function Doctors() {
     <section className="doctors section-pad" id="doctors" ref={ref}>
       <div className="wrap">
         <div className="section-head reveal">
-          <h2>A team of leading cardiologists.</h2>
+          <h2>The doctors who'll know your name.</h2>
           <p>
             Patients are cared for by experienced specialists spanning advanced
             heart failure, structural and interventional cardiology, backed by
@@ -17,40 +17,34 @@ export default function Doctors() {
           </p>
         </div>
 
-        <div className="doctors-grid">
-          {DOCTORS.map((d) => (
-            <article className="doc-card reveal" key={d.name}>
-              <div className="doc-top">
+        <div className="doc-rows">
+          {DOCTORS.map((d, i) => (
+            <article
+              className={`doc-row reveal${i % 2 === 1 ? " flip" : ""}`}
+              key={d.name}
+            >
+              <figure className="doc-portrait">
                 <img
-                  className="doc-avatar"
                   src={d.avatar}
-                  alt={d.name}
-                  width={140}
-                  height={140}
+                  alt={`Portrait of ${d.name}`}
+                  width={900}
+                  height={1125}
                   loading="lazy"
                 />
-                <div className="doc-name">
-                  <h3>{d.name}</h3>
-                  <div className="doc-role">{d.role}</div>
-                </div>
-              </div>
+              </figure>
 
-              <div className="doc-quals">
-                {d.quals.map((q) => (
-                  <span className="qual" key={q}>
-                    {q}
-                  </span>
-                ))}
-              </div>
-
-              <p className="doc-bio">{d.bio}</p>
-
-              <div className="doc-focus">
-                <div className="label">Areas of focus</div>
-                <div className="tags">
-                  {d.focus.map((f) => (
-                    <span key={f}>{f}</span>
-                  ))}
+              <div className="doc-body">
+                <h3>{d.name}</h3>
+                <div className="doc-role">{d.role}</div>
+                <div className="doc-quals">{d.quals.join(" · ")}</div>
+                <p className="doc-bio">{d.bio}</p>
+                <div className="doc-focus">
+                  <div className="label">Areas of focus</div>
+                  <div className="tags">
+                    {d.focus.map((f) => (
+                      <span key={f}>{f}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </article>

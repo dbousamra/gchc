@@ -7,11 +7,6 @@ const ECG_PATH =
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <div
-        className="hero-photo"
-        style={{ backgroundImage: `url(${IMAGES.hero})` }}
-        aria-hidden="true"
-      />
       <div className="wrap hero-inner">
         {/* Hero is above the fold: visible by default, animated on load (not
             gated on scroll-reveal, which can render blank). */}
@@ -21,8 +16,8 @@ export default function Hero() {
             Care when your <em>heart</em> needs it most.
           </h1>
           <p className="hero-lead">
-            Specialist cardiology, advanced echocardiography and cardiac device
-            care, delivered by a multidisciplinary team committed to timely
+            Four specialist cardiologists and an experienced cardiac imaging
+            team, caring for Gold Coast hearts since 1994 with timely
             appointments and efficient reporting.
           </p>
 
@@ -36,8 +31,8 @@ export default function Hero() {
             <a className="btn btn-primary" href="#contact">
               Book an appointment <ArrowRight />
             </a>
-            <a className="btn btn-ghost on-dark" href="#referrers">
-              Refer a patient
+            <a className="btn btn-ghost on-dark" href="#doctors">
+              Meet our doctors
             </a>
           </div>
 
@@ -65,6 +60,17 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        <figure className="hero-figure">
+          <img
+            src={IMAGES.echo}
+            alt="A cardiac sonographer performing an echocardiogram at GC HeartCare"
+            width={1800}
+            height={1199}
+            fetchPriority="high"
+          />
+          <figcaption>Echocardiography at our rooms, Gold Coast Private Hospital</figcaption>
+        </figure>
       </div>
     </section>
   );

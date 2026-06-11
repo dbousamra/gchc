@@ -6,8 +6,10 @@ export const asset = (p: string) => `${import.meta.env.BASE_URL}${p}`;
 
 export const IMAGES = {
   logo: asset("logo.png"),
-  hero: asset("img-hero.jpg"),
-  heart: asset("img-heart.jpg"),
+  // Real practice photography (from the 2020 GC HeartCare shoot).
+  echo: asset("img-echo.jpg"),
+  suite: asset("img-suite.jpg"),
+  reception: asset("img-reception.jpg"),
   clinic: asset("img-clinic.jpg"),
 };
 
@@ -34,9 +36,9 @@ export const PRACTICE = {
 export type NavItem = { label: string; href: string };
 
 export const NAV: NavItem[] = [
-  { label: "Care", href: "#services" },
-  { label: "Conditions", href: "#conditions" },
+  { label: "Our Story", href: "#about" },
   { label: "Our Doctors", href: "#doctors" },
+  { label: "Care", href: "#services" },
   { label: "For Patients", href: "#patients" },
   { label: "Referrers", href: "#referrers" },
   { label: "Contact", href: "#contact" },
@@ -121,6 +123,14 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     ],
   },
 ];
+
+// The clinic story, told beside real photos of the rooms.
+export const STORY = {
+  paragraphs: [
+    "GC HeartCare began with one cardiologist and a simple conviction: behind every scan and every result is a person who deserves clarity, reassurance and genuine care. Dr John Bou-Samra has looked after Gold Coast hearts on that principle since 1994.",
+    "Today the practice brings together four cardiologists and two accredited cardiac sonographers in Suite 12 at Gold Coast Private Hospital, Southport. The promise to you hasn't changed: timely appointments, careful diagnosis, and results back to your GP without delay.",
+  ],
+};
 
 export type Doctor = {
   name: string;
